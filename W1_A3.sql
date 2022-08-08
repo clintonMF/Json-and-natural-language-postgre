@@ -36,6 +36,7 @@ before     |    1
 
 CREATE TABLE docs01 (id SERIAL, doc TEXT, PRIMARY KEY(id));
 
+DROP TABLE  IF EXISTS invert01;
 CREATE TABLE invert01 (
   keyword TEXT,
   doc_id INTEGER REFERENCES docs01(id) ON DELETE CASCADE
@@ -56,13 +57,14 @@ INSERT INTO docs01 (doc) VALUES
 
 -- check the details you want to input into the invert01 tables
 SELECT id, s.keyword as keyword
-from docs01 as d, unnest(string_to_array(d.doc, ' ')) s(keyword)
-ORDER BY id;
+from docs01 as d, unnest(string_to_array(lower(d.doc), ' ')) s(keyword)
+ORDER BY id LIMIT 30; 
 
 --insert into the table
 insert into invert01(doc_id, keyword)
-SELECT id, s.keyword as keyword
-from docs01 as d, unnest(string_to_array(d.doc, ' ')) s(keyword);
+SELECT DISTINCT id, s.keyword as keyword
+from docs01 as d, unnest(string_to_array(lower(d.doc), ' ')) s(keyword)
+ORDER BY id;
 
 --checking final result
 SELECT keyword, doc_id FROM invert01 ORDER BY keyword, doc_id LIMIT 10;
