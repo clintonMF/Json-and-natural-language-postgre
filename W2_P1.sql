@@ -21,3 +21,5 @@ INSERT INTO docs(doc) select 'NEON ' || generate_series(10000, 20000);
 select id, doc from docs where '{learn}' <@ string_to_array(doc, ' ');
 -- the "<@" sign means contains
 
+EXPLAIN ANALYZE select id, doc from docs where '{learn}' <@ string_to_array(doc, ' ');
+
