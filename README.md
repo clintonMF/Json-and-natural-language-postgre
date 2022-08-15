@@ -2,7 +2,7 @@
 - This is a postgres course taught by university of michigan.
 - It is the third course on the postgres specialization.
 
-##How to use this folder
+## How to use this folder
 -There are 2 types of files in this folder/ repository.
 1. the assignment files given the A notation.
 2. the practice file given the P notation.
