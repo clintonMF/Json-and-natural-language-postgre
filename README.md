@@ -3,9 +3,12 @@
 - It is the third course on the postgres specialization.
 
 ## How to use this folder
--There are 2 types of files in this folder/ repository.
+-There are 3 types of files in this folder/ repository.
 1. the assignment files given the A notation.
 2. the practice file given the P notation.
+3. the files used during the lecture.
+- files used in during the lecture are those which don't have W_A structure.
+- e.g lecture_text.txt file is for the 1st and 2nd week
 
 - W is used to refer to week and the number following is the said week
 e.g **W2** refers to week 2, the second week of the course
